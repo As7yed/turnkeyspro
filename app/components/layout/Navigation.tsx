@@ -44,12 +44,6 @@ export default function Navigation() {
               Why us
             </a>
             <a
-              href="#coverage"
-              className="text-gray-700 hover:text-brand transition-colors font-medium"
-            >
-              Service areas
-            </a>
-            <a
               href="#contact"
               className="px-6 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-colors shadow-md hover:shadow-lg"
             >

@@ -27,14 +27,14 @@ const whyUsReasons = [
   {
     icon: CheckCircle,
     title: 'The TurnKey Experience',
-    description: 'From the first call to the final punch list, we handle the logistics so you do not have to chase crews.',
+    description: 'One point of contact, clear communication, and hassle-free coordination from start to finish.',
   },
 ];
 
 export default function TrustSection() {
   return (
-    <section id="why-us" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="why-us" className="py-20 bg-concrete relative overflow-hidden">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -42,10 +42,10 @@ export default function TrustSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
             Why us
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             We are built for reliability—clear communication, on-time arrivals, and clean job sites.
           </p>
         </motion.div>

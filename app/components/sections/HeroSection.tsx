@@ -64,7 +64,7 @@ export default function HeroSection() {
               href="#contact"
               className="group px-8 py-4 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
             >
-              Get a fast quote
+              Get started
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
             </a>
 
@@ -85,16 +85,16 @@ export default function HeroSection() {
             className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-3xl mx-auto"
           >
             <div className="text-center">
-              <div className="text-gray-400 text-sm mb-1">Average response</div>
-              <div className="text-white text-lg font-semibold">Same-day</div>
+              <div className="text-gray-400 text-sm mb-1">Experience</div>
+              <div className="text-white text-lg font-semibold">Trusted Local Team</div>
             </div>
             <div className="text-center">
-              <div className="text-gray-400 text-sm mb-1">Clients</div>
+              <div className="text-gray-400 text-sm mb-1">Serving</div>
               <div className="text-white text-lg font-semibold">Homes • PMs • CRE</div>
             </div>
             <div className="text-center">
-              <div className="text-gray-400 text-sm mb-1">Customer rating</div>
-              <div className="text-white text-lg font-semibold">★★★★★</div>
+              <div className="text-gray-400 text-sm mb-1">Commitment</div>
+              <div className="text-white text-lg font-semibold">Quality Work</div>
             </div>
           </motion.div>
         </motion.div>
