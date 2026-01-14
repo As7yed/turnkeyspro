@@ -1,7 +1,5 @@
 'use client';
 
-import { Phone, Mail } from 'lucide-react';
-
 export default function Footer() {
   return (
     <footer className="bg-concrete text-white relative overflow-hidden">
@@ -12,9 +10,6 @@ export default function Footer() {
             <h3 className="text-2xl font-bold mb-4">TurnKey Pros</h3>
             <p className="text-gray-300 mb-4 leading-relaxed">
               Professional make-ready and handyman services for property managers, investors, and homeowners across Texas.
-            </p>
-            <p className="text-sm text-gray-400">
-              Licensed & Insured
             </p>
           </div>
 
@@ -65,38 +60,27 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Service Highlights */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
-            <ul className="space-y-4">
-              <li className="flex items-center gap-3">
-                <Phone size={20} className="text-brand flex-shrink-0" />
-                <a
-                  href="tel:+10000000000"
-                  className="text-gray-300 hover:text-brand transition-colors"
-                >
-                  +1 (000) 000-0000
-                </a>
+            <h4 className="text-lg font-semibold mb-4">Why Choose Us</h4>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-2">
+                <span className="text-brand mt-1">✓</span>
+                <span className="text-gray-300">Same-day response</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={20} className="text-brand flex-shrink-0" />
-                <a
-                  href="mailto:info@turnkeypros.com"
-                  className="text-gray-300 hover:text-brand transition-colors"
-                >
-                  info@turnkeypros.com
-                </a>
+              <li className="flex items-start gap-2">
+                <span className="text-brand mt-1">✓</span>
+                <span className="text-gray-300">Licensed & insured</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-brand mt-1">✓</span>
+                <span className="text-gray-300">Professional crews</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-brand mt-1">✓</span>
+                <span className="text-gray-300">Satisfaction guaranteed</span>
               </li>
             </ul>
-
-            <div className="mt-6">
-              <a
-                href="#contact"
-                className="inline-block px-6 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-colors"
-              >
-                Get a quote
-              </a>
-            </div>
           </div>
         </div>
 
@@ -107,7 +91,7 @@ export default function Footer() {
               © 2025 TurnKey Pros. All rights reserved.
             </p>
             <p className="text-gray-400 text-sm text-center md:text-right">
-              Serving Dallas, Houston, San Antonio & Beyond
+              Texas-based • Locally operated
             </p>
           </div>
         </div>
