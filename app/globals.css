@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --alt-background: #f5f6f8;
+  --ink: #111827;
+  --muted-text: #6B7280;
+  --brand-orange: #F59E0B;
+  --brand-orange-dark: #D97706;
+}
+
+theme inline {
+  --color-background: var(--background);
+  --color-alt-background: var(--alt-background);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted-text);
+  --color-brand: var(--brand-orange);
+  --color-brand-dark: var(--brand-orange-dark);
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--ink);
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Stone/Concrete Texture Background */
+.bg-concrete {
+  background-color: #1f2937;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    ),
+    linear-gradient(
+      180deg,
+      rgba(31, 41, 55, 0.95) 0%,
+      rgba(17, 24, 39, 0.98) 100%
+    );
+  background-size: 100px 100px, 100px 100px, 100% 100%;
+  position: relative;
+}
+
+.bg-concrete::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
