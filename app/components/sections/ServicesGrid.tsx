@@ -87,24 +87,24 @@ const services = [
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="py-20 bg-concrete relative overflow-hidden">
+    <section id="services" className="py-12 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
             Services
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             Reliable make-ready and handyman services for property managers, investors, and homeowners.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -114,7 +114,7 @@ export default function ServicesGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group bg-card-texture rounded-xl p-8 shadow-sm hover:shadow-lg transition-all"
+                className="group bg-white rounded-xl p-5 sm:p-8 shadow-md hover:shadow-lg transition-all"
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="p-3 bg-brand/10 rounded-lg group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -142,7 +142,7 @@ export default function ServicesGrid() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
           <a
             href="#contact"

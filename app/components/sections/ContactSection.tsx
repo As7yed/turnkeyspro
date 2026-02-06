@@ -10,19 +10,19 @@ const serviceAreas = [
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="py-20 bg-concrete relative overflow-hidden">
+    <section id="contact" className="py-12 sm:py-20 bg-concrete section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
             Get a quote
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
             Serving Texas with rapid response. Fill out the form and we will get back to you within 24 hours.
           </p>
         </motion.div>
@@ -36,8 +36,8 @@ export default function ContactSection() {
             transition={{ duration: 0.5 }}
             className="lg:col-span-2"
           >
-            <div className="bg-card-texture rounded-xl p-8 shadow-sm hover:shadow-xl transition-all h-full">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Send us a message</h3>
+            <div className="bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all h-full">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Send us a message</h3>
 
               <form className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
@@ -145,8 +145,8 @@ export default function ContactSection() {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="lg:col-span-1"
           >
-            <div className="bg-card-texture rounded-xl p-8 shadow-sm hover:shadow-xl transition-all h-full space-y-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Contact & Service Areas</h3>
+            <div className="bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all h-full space-y-6 sm:space-y-8">
+              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Contact & Service Areas</h3>
 
               {/* Contact Info */}
               <div className="space-y-4">
