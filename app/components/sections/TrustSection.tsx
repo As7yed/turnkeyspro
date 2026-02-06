@@ -33,24 +33,24 @@ const whyUsReasons = [
 
 export default function TrustSection() {
   return (
-    <section id="why-us" className="py-20 bg-concrete relative overflow-hidden">
+    <section id="why-us" className="py-12 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
             Why us
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             We are built for reliability—clear communication, on-time arrivals, and clean job sites.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
           {whyUsReasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -60,15 +60,16 @@ export default function TrustSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-card-texture rounded-xl p-8 shadow-sm hover:shadow-xl transition-all text-center"
+                className="bg-white rounded-xl p-4 sm:p-8 shadow-md hover:shadow-xl transition-all text-center"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-brand/10 rounded-full mb-6">
-                  <Icon size={32} className="text-brand" />
+                <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-brand/10 rounded-full mb-4 sm:mb-6">
+                  <Icon size={24} className="text-brand sm:hidden" />
+                  <Icon size={32} className="text-brand hidden sm:block" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
+                <h3 className="text-base sm:text-xl font-bold text-slate-900 mb-2 sm:mb-3">
                   {reason.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                   {reason.description}
                 </p>
               </motion.div>

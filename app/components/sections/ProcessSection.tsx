@@ -32,24 +32,24 @@ const steps = [
 
 export default function ProcessSection() {
   return (
-    <section id="process" className="py-20 bg-concrete relative overflow-hidden">
+    <section id="process" className="py-12 sm:py-20 bg-concrete section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
             How it works
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+          <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
             From the first call to the final punch list, we handle the logistics so you do not have to chase crews.
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {steps.map((step, index) => {
             const Icon = step.icon;
             return (
@@ -59,10 +59,10 @@ export default function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative bg-card-texture rounded-xl p-8 shadow-sm hover:shadow-xl transition-all"
+                className="relative bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all ml-2 mt-2 sm:ml-0 sm:mt-0"
               >
                 {/* Step number badge */}
-                <div className="absolute -top-4 -left-4 w-12 h-12 bg-brand rounded-full flex items-center justify-center text-white font-bold text-xl shadow-lg">
+                <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 bg-brand rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">
                   {step.number}
                 </div>
 
@@ -92,7 +92,7 @@ export default function ProcessSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-12"
         >
           <a
             href="#contact"

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -12,16 +13,16 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <div className="flex flex-col">
-              <span className="text-2xl font-bold text-slate-900">
-                TurnKey Pros
-              </span>
-              <span className="text-xs text-gray-600 tracking-wide">
-                Make‑Ready • Handyman
-              </span>
-            </div>
-          </div>
+          <a href="#" className="flex-shrink-0">
+            <Image
+              src="/ResizedOrangeLogo.png"
+              alt="TurnKey Pros"
+              width={180}
+              height={60}
+              className="h-10 sm:h-14 w-auto"
+              priority
+            />
+          </a>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -73,42 +74,44 @@ export default function Navigation() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-200"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-6 py-4 space-y-1">
               <a
                 href="#services"
-                className="block text-gray-700 hover:text-brand transition-colors font-medium py-2"
+                className="block text-gray-700 hover:text-brand hover:bg-gray-50 transition-colors font-medium py-3 px-3 rounded-lg text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Services
               </a>
               <a
                 href="#process"
-                className="block text-gray-700 hover:text-brand transition-colors font-medium py-2"
+                className="block text-gray-700 hover:text-brand hover:bg-gray-50 transition-colors font-medium py-3 px-3 rounded-lg text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 How it works
               </a>
               <a
                 href="#why-us"
-                className="block text-gray-700 hover:text-brand transition-colors font-medium py-2"
+                className="block text-gray-700 hover:text-brand hover:bg-gray-50 transition-colors font-medium py-3 px-3 rounded-lg text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Why us
               </a>
               <a
                 href="#coverage"
-                className="block text-gray-700 hover:text-brand transition-colors font-medium py-2"
+                className="block text-gray-700 hover:text-brand hover:bg-gray-50 transition-colors font-medium py-3 px-3 rounded-lg text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Service areas
               </a>
-              <a
-                href="#contact"
-                className="block w-full text-center px-6 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-colors"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Contact
-              </a>
+              <div className="pt-2">
+                <a
+                  href="#contact"
+                  className="block w-full text-center px-6 py-3.5 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-colors text-lg"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

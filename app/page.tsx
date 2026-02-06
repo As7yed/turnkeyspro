@@ -12,10 +12,15 @@ export default function Home() {
       <Navigation />
       <main>
         <HeroSection />
+        <div className="section-divider" />
         <ServicesGrid />
+        <div className="section-divider" />
         <ProcessSection />
+        <div className="section-divider" />
         <TrustSection />
+        <div className="section-divider" />
         <ContactSection />
+        <div className="section-divider" />
       </main>
       <Footer />
     </>

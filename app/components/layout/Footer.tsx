@@ -1,13 +1,21 @@
 'use client';
 
+import Image from 'next/image';
+
 export default function Footer() {
   return (
     <footer className="bg-concrete text-white relative overflow-hidden">
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-3 gap-12 mb-12">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-12 mb-8 sm:mb-12">
           {/* Company Info */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4">TurnKey Pros</h3>
+          <div className="text-center md:text-left">
+            <Image
+              src="/ResizedGrayLogo.png"
+              alt="TurnKey Pros"
+              width={200}
+              height={67}
+              className="h-12 sm:h-16 w-auto mb-4 mx-auto md:mx-0"
+            />
             <p className="text-gray-300 mb-4 leading-relaxed">
               Professional make-ready and handyman services for property managers, investors, and homeowners across Texas.
             </p>
@@ -85,12 +93,12 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-gray-700 pt-8">
+        <div className="border-t border-white/40 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm text-center md:text-left">
-              © 2025 TurnKey Pros. All rights reserved.
+            <p className="text-white/70 text-sm text-center md:text-left">
+              © 2026 TurnKey Pros. All rights reserved.
             </p>
-            <p className="text-gray-400 text-sm text-center md:text-right">
+            <p className="text-white/70 text-sm text-center md:text-right">
               Texas-based • Locally operated
             </p>
           </div>
