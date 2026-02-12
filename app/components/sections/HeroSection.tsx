@@ -8,13 +8,23 @@ import { ArrowRight, Clock, Shield, Star } from 'lucide-react';
 function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-concrete overflow-hidden">
-      {/* Background Logo Image */}
+      {/* Background Logo Image - Portrait for mobile, Landscape for desktop */}
       <div className="absolute inset-0 pointer-events-none">
+        {/* Mobile Portrait Image */}
         <Image
-          src="/OrangeHouseRemoveds.jpg"
+          src="/OrangeHouseRemovedPortrait.png"
           alt=""
           fill
-          className="object-cover opacity-150"
+          className="object-cover object-center opacity-150 sm:hidden"
+          priority
+          quality={75}
+        />
+        {/* Desktop Landscape Image */}
+        <Image
+          src="/OrangeHouseRemovedLandscape.jpg"
+          alt=""
+          fill
+          className="object-cover object-center opacity-150 hidden sm:block"
           priority
           quality={75}
         />
@@ -66,11 +76,11 @@ function HeroSection() {
             </div>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             Make-Ready & Handyman Services
           </h1>
 
-          <p className="text-base sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
+          <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
             Residential and commercial property services. Make-ready turnovers, handyman repairs,
             refresh projects, and clean-outs—delivered with efficiency and ease.
           </p>
@@ -93,18 +103,18 @@ function HeroSection() {
           </div>
 
           {/* Stats Section */}
-          <div className="mt-10 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
-            <div className="text-center">
-              <div className="text-gray-400 text-xs sm:text-sm mb-1">Experience</div>
-              <div className="text-white text-sm sm:text-lg font-semibold">Trusted Local Team</div>
+          <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
+            <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
+              <div className="text-gray-300 text-sm mb-2">Experience</div>
+              <div className="text-white text-lg sm:text-xl font-semibold">Trusted Local Team</div>
             </div>
-            <div className="text-center">
-              <div className="text-gray-400 text-xs sm:text-sm mb-1">Serving</div>
-              <div className="text-white text-sm sm:text-lg font-semibold">Homes • PMs • CRE</div>
+            <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
+              <div className="text-gray-300 text-sm mb-2">Serving</div>
+              <div className="text-white text-lg sm:text-xl font-semibold">Homes • PMs • CRE</div>
             </div>
-            <div className="text-center">
-              <div className="text-gray-400 text-xs sm:text-sm mb-1">Commitment</div>
-              <div className="text-white text-sm sm:text-lg font-semibold">Quality Work</div>
+            <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
+              <div className="text-gray-300 text-sm mb-2">Commitment</div>
+              <div className="text-white text-lg sm:text-xl font-semibold">Quality Work</div>
             </div>
           </div>
         </motion.div>

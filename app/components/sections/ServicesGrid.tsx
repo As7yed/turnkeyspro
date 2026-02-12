@@ -88,7 +88,7 @@ const services = [
 
 function ServicesGrid() {
   return (
-    <section id="services" className="py-12 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
+    <section id="services" className="py-16 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ function ServicesGrid() {
           </p>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (
@@ -115,7 +115,7 @@ function ServicesGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="group bg-white rounded-xl p-5 sm:p-8 shadow-md hover:shadow-lg transition-all"
+                className="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all"
                 style={{ willChange: 'transform' }}
               >
                 <div className="flex items-center gap-4 mb-6">
