@@ -1,10 +1,11 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { ArrowRight, Clock, Shield, Star } from 'lucide-react';
 
-export default function HeroSection() {
+function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-concrete overflow-hidden">
       {/* Background Logo Image */}
@@ -15,6 +16,7 @@ export default function HeroSection() {
           fill
           className="object-cover opacity-150"
           priority
+          quality={75}
         />
       </div>
 
@@ -25,18 +27,11 @@ export default function HeroSection() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-12 sm:py-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
         >
           {/* Trust Badges - individual pills on mobile, single bar on desktop */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="mb-6 sm:mb-8"
-          >
+          <div className="mb-6 sm:mb-8">
             {/* Mobile: individual pills */}
             <div className="flex flex-wrap justify-center gap-2 sm:hidden">
               <span className="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-3.5 py-2 text-white text-xs">
@@ -69,30 +64,18 @@ export default function HeroSection() {
                 <span>Satisfaction guaranteed</span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
             Make-Ready & Handyman Services
           </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-base sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
-          >
+          <p className="text-base sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
             Residential and commercial property services. Make-ready turnovers, handyman repairs,
             refresh projects, and clean-outs—delivered with efficiency and ease.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0"
-          >
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
             <a
               href="#contact"
               className="group w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2"
@@ -107,16 +90,10 @@ export default function HeroSection() {
             >
               Call +1 (000) 000-0000
             </a>
-          </motion.div>
+          </div>
 
           {/* Stats Section */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="mt-10 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto"
-          >
+          <div className="mt-10 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto">
             <div className="text-center">
               <div className="text-gray-400 text-xs sm:text-sm mb-1">Experience</div>
               <div className="text-white text-sm sm:text-lg font-semibold">Trusted Local Team</div>
@@ -129,9 +106,11 @@ export default function HeroSection() {
               <div className="text-gray-400 text-xs sm:text-sm mb-1">Commitment</div>
               <div className="text-white text-sm sm:text-lg font-semibold">Quality Work</div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>
   );
 }
+
+export default React.memo(HeroSection);

@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   Shield,
@@ -31,15 +32,15 @@ const whyUsReasons = [
   },
 ];
 
-export default function TrustSection() {
+function TrustSection() {
   return (
     <section id="why-us" className="py-12 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
@@ -56,11 +57,12 @@ export default function TrustSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="bg-white rounded-xl p-4 sm:p-8 shadow-md hover:shadow-xl transition-all text-center"
+                style={{ willChange: 'transform' }}
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-brand/10 rounded-full mb-4 sm:mb-6">
                   <Icon size={24} className="text-brand sm:hidden" />
@@ -80,3 +82,5 @@ export default function TrustSection() {
     </section>
   );
 }
+
+export default React.memo(TrustSection);

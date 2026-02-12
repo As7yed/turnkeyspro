@@ -1,11 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function Navigation() {
+function Navigation() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -72,6 +72,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
             className="md:hidden bg-white border-t border-gray-200"
           >
             <div className="px-6 py-4 space-y-1">
@@ -119,3 +120,5 @@ export default function Navigation() {
     </nav>
   );
 }
+
+export default React.memo(Navigation);

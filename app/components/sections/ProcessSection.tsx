@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Phone, FileText, Wrench, CheckCircle } from 'lucide-react';
 
@@ -30,15 +31,15 @@ const steps = [
   },
 ];
 
-export default function ProcessSection() {
+function ProcessSection() {
   return (
     <section id="process" className="py-12 sm:py-20 bg-concrete section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
@@ -55,11 +56,12 @@ export default function ProcessSection() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="relative bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all ml-2 mt-2 sm:ml-0 sm:mt-0"
+                style={{ willChange: 'transform' }}
               >
                 {/* Step number badge */}
                 <div className="absolute -top-3 -left-3 sm:-top-4 sm:-left-4 w-10 h-10 sm:w-12 sm:h-12 bg-brand rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-xl shadow-lg">
@@ -87,21 +89,17 @@ export default function ProcessSection() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          className="text-center mt-8 sm:mt-12"
-        >
+        <div className="text-center mt-8 sm:mt-12">
           <a
             href="#contact"
             className="inline-block px-8 py-4 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:scale-105"
           >
             Start your project
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
+
+export default React.memo(ProcessSection);

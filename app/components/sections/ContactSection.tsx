@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
 
@@ -8,15 +9,15 @@ const serviceAreas = [
   'Houston', 'San Antonio'
 ];
 
-export default function ContactSection() {
+function ContactSection() {
   return (
     <section id="contact" className="py-12 sm:py-20 bg-concrete section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
@@ -29,13 +30,7 @@ export default function ContactSection() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Contact Form - 2 columns wide */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="lg:col-span-2"
-          >
+          <div className="lg:col-span-2">
             <div className="bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all h-full">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Send us a message</h3>
 
@@ -135,27 +130,17 @@ export default function ContactSection() {
                 </button>
               </form>
             </div>
-          </motion.div>
+          </div>
 
           {/* Service Areas & Contact Info Sidebar */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="lg:col-span-1"
-          >
+          <div className="lg:col-span-1">
             <div className="bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all h-full space-y-6 sm:space-y-8">
               <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Contact & Service Areas</h3>
 
               {/* Contact Info */}
               <div className="space-y-4">
-                <motion.a
+                <a
                   href="tel:+10000000000"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
                   className="group flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-brand/5 border-2 border-transparent hover:border-brand transition-all"
                 >
                   <div className="p-3 bg-brand/10 rounded-xl group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -167,14 +152,10 @@ export default function ContactSection() {
                       +1 (000) 000-0000
                     </div>
                   </div>
-                </motion.a>
+                </a>
 
-                <motion.a
+                <a
                   href="mailto:info@turnkeypros.com"
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.3 }}
                   className="group flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-brand/5 border-2 border-transparent hover:border-brand transition-all"
                 >
                   <div className="p-3 bg-brand/10 rounded-xl group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -186,18 +167,12 @@ export default function ContactSection() {
                       info@turnkeypros.com
                     </div>
                   </div>
-                </motion.a>
+                </a>
               </div>
 
               {/* Service Areas */}
               <div className="pt-6 border-t border-gray-300">
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.4 }}
-                  className="flex items-center gap-3 mb-6"
-                >
+                <div className="flex items-center gap-3 mb-6">
                   <div className="p-3 bg-brand/10 rounded-xl">
                     <MapPin size={24} className="text-brand" />
                   </div>
@@ -205,26 +180,24 @@ export default function ContactSection() {
                     <h4 className="text-lg font-bold text-slate-900">Service Areas</h4>
                     <p className="text-xs text-gray-600">Proudly serving Texas</p>
                   </div>
-                </motion.div>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {serviceAreas.map((city, index) => (
-                    <motion.span
+                    <span
                       key={index}
-                      initial={{ opacity: 0, scale: 0.9 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.3, delay: 0.5 + index * 0.05 }}
                       className="px-4 py-2 bg-white hover:bg-brand text-slate-900 hover:text-white font-semibold text-sm rounded-full border-2 border-brand/30 hover:border-brand shadow-sm hover:shadow-md transition-all cursor-pointer"
                     >
                       {city}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+export default React.memo(ContactSection);
