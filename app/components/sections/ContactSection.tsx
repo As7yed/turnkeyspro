@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const serviceAreas = [
   'Dallas', 'Fort Worth', 'Plano', 'Frisco', 'McKinney', 'Allen',
@@ -10,6 +10,61 @@ const serviceAreas = [
 ];
 
 function ContactSection() {
+  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [formMessage, setFormMessage] = useState('');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setFormStatus('submitting');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    // Dynamically set email subject with user's name and service type
+    const name = formData.get('name') as string || 'Unknown';
+    const service = formData.get('service') as string || 'General inquiry';
+    formData.set('subject', `New ${service} request from ${name}`);
+
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData as any).toString()
+      });
+
+      // Check if response is actually from Netlify Forms
+      const contentType = response.headers.get('content-type');
+      const isNetlifyForm = response.headers.get('x-nf-request-id') !== null;
+
+      if (response.ok && (isNetlifyForm || !contentType?.includes('text/html'))) {
+        // Actual form submission success
+        setFormStatus('success');
+        setFormMessage('Thank you! We\'ll get back to you within 24 hours.');
+        form.reset();
+      } else if (response.ok && contentType?.includes('text/html')) {
+        // False positive - likely dev server returning HTML page
+        throw new Error('Form not configured. Please deploy to enable form submissions.');
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (error) {
+      setFormStatus('error');
+
+      // Better error message based on environment
+      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
+        setFormMessage('Form submissions are currently down. Please try again or reach out to us directly using our service line.');
+      } else {
+        setFormMessage('Oops! Something went wrong. Please try again or call us directly.');
+      }
+
+      // Reset error message after 8 seconds (longer for dev message)
+      setTimeout(() => {
+        setFormStatus('idle');
+        setFormMessage('');
+      }, 8000);
+    }
+  };
+
   return (
     <section id="contact" className="py-12 sm:py-20 bg-concrete section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,9 +87,109 @@ function ContactSection() {
           {/* Contact Form - 2 columns wide */}
           <div className="lg:col-span-2">
             <div className="bg-card-texture rounded-xl p-5 sm:p-8 shadow-sm hover:shadow-xl transition-all h-full">
-              <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Send us a message</h3>
+              {formStatus === 'success' ? (
+                /* Success State - Full Form Replacement */
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, ease: "easeOut" }}
+                  className="flex flex-col items-center justify-center text-center py-12 sm:py-16"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                    className="mb-6"
+                  >
+                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                      <CheckCircle className="text-green-600" size={48} />
+                    </div>
+                  </motion.div>
 
-              <form className="space-y-4">
+                  <motion.h3
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3"
+                  >
+                    Message Sent Successfully!
+                  </motion.h3>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="text-base sm:text-lg text-gray-700 mb-2 max-w-md"
+                  >
+                    Thank you for reaching out to TurnKey Pros!
+                  </motion.p>
+
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="text-sm sm:text-base text-gray-600 mb-8 max-w-md"
+                  >
+                    We've received your request and will get back to you within 24 hours.
+                  </motion.p>
+
+                  <motion.button
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.6 }}
+                    onClick={() => {
+                      setFormStatus('idle');
+                      setFormMessage('');
+                    }}
+                    className="px-8 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+                  >
+                    <Send size={20} />
+                    Send Another Message
+                  </motion.button>
+
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.7 }}
+                    className="text-xs text-gray-500 mt-6"
+                  >
+                    Need immediate assistance? Call us at <a href="tel:+10000000000" className="text-brand font-semibold hover:underline">+1 (000) 000-0000</a>
+                  </motion.p>
+                </motion.div>
+              ) : (
+                /* Form State */
+                <>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Send us a message</h3>
+
+                  {/* Error Message Only */}
+                  {formStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="mb-6 p-4 bg-red-50 border-2 border-red-500 rounded-lg flex items-center gap-3"
+                    >
+                      <AlertCircle className="text-red-500 flex-shrink-0" size={24} />
+                      <p className="text-red-800 font-semibold">{formMessage}</p>
+                    </motion.div>
+                  )}
+
+                  <form
+                    name="contact"
+                    method="POST"
+                    data-netlify="true"
+                    data-netlify-honeypot="bot-field"
+                    onSubmit={handleSubmit}
+                    className="space-y-4"
+                  >
+                {/* Netlify form detection */}
+                <input type="hidden" name="form-name" value="contact" />
+
+                {/* Honeypot for spam prevention */}
+                <input type="hidden" name="bot-field" />
+
+                {/* Dynamic email subject (set via JavaScript) */}
+                <input type="hidden" name="subject" value="" data-remove-prefix />
+
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold text-slate-900 mb-2">
@@ -43,6 +198,7 @@ function ContactSection() {
                     <input
                       type="text"
                       id="name"
+                      name="name"
                       required
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                       placeholder="Your name"
@@ -55,6 +211,7 @@ function ContactSection() {
                     <input
                       type="email"
                       id="email"
+                      name="email"
                       required
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                       placeholder="your@email.com"
@@ -70,6 +227,7 @@ function ContactSection() {
                     <input
                       type="tel"
                       id="phone"
+                      name="phone"
                       required
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                       placeholder="(555) 123-4567"
@@ -81,6 +239,7 @@ function ContactSection() {
                     </label>
                     <select
                       id="service"
+                      name="service"
                       required
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                     >
@@ -103,6 +262,7 @@ function ContactSection() {
                   <input
                     type="text"
                     id="property-address"
+                    name="property-address"
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                     placeholder="123 Main St, Dallas, TX 75001"
                   />
@@ -114,6 +274,7 @@ function ContactSection() {
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     required
                     rows={4}
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all resize-none"
@@ -121,14 +282,30 @@ function ContactSection() {
                   />
                 </div>
 
+                <div className="flex items-center gap-3 p-4 bg-brand/5 border-2 border-brand/20 rounded-lg">
+                  <input
+                    type="checkbox"
+                    id="request-estimate"
+                    name="request-estimate"
+                    value="yes"
+                    className="w-5 h-5 text-brand border-gray-300 rounded focus:ring-2 focus:ring-brand cursor-pointer"
+                  />
+                  <label htmlFor="request-estimate" className="text-sm font-semibold text-slate-900 cursor-pointer">
+                    I would like to receive a free estimate for this project
+                  </label>
+                </div>
+
                 <button
                   type="submit"
-                  className="w-full px-8 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2"
+                  disabled={formStatus === 'submitting'}
+                  className="w-full px-8 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={20} />
-                  Send Message
+                  {formStatus === 'submitting' ? 'Sending...' : 'Send Message'}
                 </button>
               </form>
+                </>
+              )}
             </div>
           </div>
 
@@ -155,7 +332,7 @@ function ContactSection() {
                 </a>
 
                 <a
-                  href="mailto:info@turnkeypros.com"
+                  href="mailto:info@turnkeyprosusa.com"
                   className="group flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-brand/5 border-2 border-transparent hover:border-brand transition-all"
                 >
                   <div className="p-3 bg-brand/10 rounded-xl group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -164,7 +341,7 @@ function ContactSection() {
                   <div className="flex-1 min-w-0">
                     <div className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Email us</div>
                     <div className="text-sm font-bold text-slate-900 group-hover:text-brand transition-colors break-all">
-                      info@turnkeypros.com
+                      info@turnkeyprosusa.com
                     </div>
                   </div>
                 </a>
