@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import { motion } from 'framer-motion';
 import {
   KeyRound,
@@ -85,15 +86,15 @@ const services = [
   },
 ];
 
-export default function ServicesGrid() {
+function ServicesGrid() {
   return (
     <section id="services" className="py-12 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
@@ -110,11 +111,12 @@ export default function ServicesGrid() {
             return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.4, ease: "easeOut" }}
                 className="group bg-white rounded-xl p-5 sm:p-8 shadow-md hover:shadow-lg transition-all"
+                style={{ willChange: 'transform' }}
               >
                 <div className="flex items-center gap-4 mb-6">
                   <div className="p-3 bg-brand/10 rounded-lg group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -137,21 +139,17 @@ export default function ServicesGrid() {
           })}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="text-center mt-8 sm:mt-12"
-        >
+        <div className="text-center mt-8 sm:mt-12">
           <a
             href="#contact"
             className="inline-block px-8 py-4 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:scale-105"
           >
             Request a quote
           </a>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 }
+
+export default React.memo(ServicesGrid);

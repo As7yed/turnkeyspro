@@ -33,51 +33,31 @@ body {
   line-height: 1.6;
 }
 
-/* Stone/Concrete Texture Background */
+/* Optimized Stone/Concrete Texture Background */
 .bg-concrete {
-  background-color: #7E7E7E;
+  background: linear-gradient(135deg, #888 0%, #7E7E7E 50%, #858585 100%);
   background-image:
     repeating-linear-gradient(
       0deg,
       transparent,
       transparent 2px,
-      rgba(0, 0, 0, 0.04) 2px,
-      rgba(0, 0, 0, 0.04) 4px
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
     ),
     repeating-linear-gradient(
       90deg,
       transparent,
       transparent 2px,
-      rgba(0, 0, 0, 0.04) 2px,
-      rgba(0, 0, 0, 0.04) 4px
+      rgba(0, 0, 0, 0.03) 2px,
+      rgba(0, 0, 0, 0.03) 4px
     ),
-    linear-gradient(
-      180deg,
-      #909090 0%,
-      #7E7E7E 25%,
-      #8E8E8E 50%,
-      #919191 75%,
-      #8F8F8F 100%
-    );
-  background-size: 100px 100px, 100px 100px, 100% 100%;
-  position: relative;
+    linear-gradient(135deg, #888 0%, #7E7E7E 50%, #858585 100%);
+  background-size: 50px 50px, 50px 50px, 100% 100%;
 }
 
-.bg-concrete::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.08'/%3E%3C/svg%3E");
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* Light stone background for alternating sections */
+/* Optimized light stone background for alternating sections */
 .bg-stone-light {
-  background-color: #e8e8e8;
+  background: linear-gradient(135deg, #e8e8e8 0%, #e4e4e4 50%, #e6e6e6 100%);
   background-image:
     repeating-linear-gradient(
       0deg,
@@ -93,34 +73,21 @@ body {
       rgba(0, 0, 0, 0.02) 2px,
       rgba(0, 0, 0, 0.02) 4px
     ),
-    linear-gradient(
-      180deg,
-      #e8e8e8 0%,
-      #e0e0e0 25%,
-      #e5e5e5 50%,
-      #e2e2e2 75%,
-      #e6e6e6 100%
-    );
-  background-size: 100px 100px, 100px 100px, 100% 100%;
-  position: relative;
+    linear-gradient(135deg, #e8e8e8 0%, #e4e4e4 50%, #e6e6e6 100%);
+  background-size: 50px 50px, 50px 50px, 100% 100%;
 }
 
-.bg-stone-light::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='lightNoiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23lightNoiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* Card Texture Background */
+/* Optimized Card Texture Background */
 .bg-card-texture {
-  background-color: #f0f0f0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cardNoiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cardNoiseFilter)' opacity='0.12'/%3E%3C/svg%3E");
+  background-color: #f8f8f8;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.01) 2px,
+      rgba(0, 0, 0, 0.01) 4px
+    );
 }
 
 /* Section divider between sections */
