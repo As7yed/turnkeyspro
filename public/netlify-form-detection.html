@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Netlify Forms Detection</title>
+  </head>
+  <body>
+    <!-- This file is required for Netlify Forms to work with Next.js Runtime v5 -->
+    <!-- It allows Netlify to detect forms during the build process -->
+
+    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <!-- Hidden fields required by Netlify -->
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="bot-field" />
+      <input type="hidden" name="subject" />
+
+      <!-- Visible fields (must match your actual form) -->
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="service">
+        <option value="">Select a service</option>
+        <option value="make-ready">Make-Ready Turnover</option>
+        <option value="handyman">Handyman Repairs</option>
+        <option value="refresh">Refresh & Finishes</option>
+        <option value="cleanout">Clean-out / Haul-away</option>
+        <option value="hvac">HVAC Care & Filters</option>
+        <option value="investor">Investor/PM Program</option>
+        <option value="other">Other / Not Sure</option>
+      </select>
+      <input type="text" name="property-address" />
+      <textarea name="message"></textarea>
+      <input type="checkbox" name="request-estimate" value="yes" />
+    </form>
+  </body>
+</html>
