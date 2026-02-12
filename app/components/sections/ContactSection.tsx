@@ -176,8 +176,8 @@ function ContactSection() {
                   <form
                     name="contact"
                     method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
+                   // data-netlify="true"
+                   // data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                     className="space-y-4"
                   >
