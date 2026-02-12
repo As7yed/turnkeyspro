@@ -17,7 +17,7 @@ export default function Footer() {
               className="h-12 sm:h-16 w-auto mb-4 mx-auto md:mx-0"
             />
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Professional make-ready and handyman services for property managers, investors, and homeowners across Texas.
+              Professional make-ready and handyman services for property managers, investors, and homeowners across Ohio.
             </p>
           </div>
 
@@ -46,7 +46,7 @@ export default function Footer() {
                   href="#why-us"
                   className="text-gray-300 hover:text-brand transition-colors"
                 >
-                  Why us
+                  The Turnkey Experience
                 </a>
               </li>
               <li>
@@ -68,27 +68,12 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Service Highlights */}
+          {/* About Section */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">Why Choose Us</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2">
-                <span className="text-brand mt-1">✓</span>
-                <span className="text-gray-300">Same-day response</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand mt-1">✓</span>
-                <span className="text-gray-300">Licensed & insured</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand mt-1">✓</span>
-                <span className="text-gray-300">Professional crews</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="text-brand mt-1">✓</span>
-                <span className="text-gray-300">Satisfaction guaranteed</span>
-              </li>
-            </ul>
+            <h4 className="text-lg font-semibold mb-4">About Turnkey Pro Solutions</h4>
+            <p className="text-gray-300 leading-relaxed">
+              At TurnKey Pros, we specialize in delivering comprehensive property maintenance and make-ready solutions that property managers and homeowners can rely on. With expertise in everything from turnovers to handyman services, we combine modern efficiency with dependable service. Our commitment to excellence means we provide responsive support to handle your property needs quickly and professionally.
+            </p>
           </div>
         </div>
 
@@ -99,7 +84,7 @@ export default function Footer() {
               © 2026 TurnKey Pros. All rights reserved.
             </p>
             <p className="text-white/70 text-sm text-center md:text-right">
-              Texas-based • Locally operated
+              Ohio-based • Locally operated
             </p>
           </div>
         </div>

@@ -34,7 +34,7 @@ const whyUsReasons = [
 
 function TrustSection() {
   return (
-    <section id="why-us" className="py-12 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
+    <section id="why-us" className="py-16 sm:py-20 bg-stone-light section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -44,14 +44,14 @@ function TrustSection() {
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
-            Why us
+            The Turnkey Experience
           </h2>
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
             We are built for reliability—clear communication, on-time arrivals, and clean job sites.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {whyUsReasons.map((reason, index) => {
             const Icon = reason.icon;
             return (
@@ -61,7 +61,7 @@ function TrustSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="bg-white rounded-xl p-4 sm:p-8 shadow-md hover:shadow-xl transition-all text-center"
+                className="bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-all text-center"
                 style={{ willChange: 'transform' }}
               >
                 <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-brand/10 rounded-full mb-4 sm:mb-6">

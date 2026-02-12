@@ -5,8 +5,8 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 const serviceAreas = [
-  'Dallas', 'Fort Worth', 'Plano', 'Frisco', 'McKinney', 'Allen',
-  'Houston', 'San Antonio'
+  'Cleveland', 'Columbus', 'Cincinnati', 'Dayton', 'Youngstown',
+  'DFW', 'Houston', 'San Antonio', 'Austin'
 ];
 
 function ContactSection() {
@@ -22,7 +22,20 @@ function ContactSection() {
 
     // Dynamically set email subject with user's name and service type
     const name = formData.get('name') as string || 'Unknown';
-    const service = formData.get('service') as string || 'General inquiry';
+    const serviceValue = formData.get('service') as string || 'other';
+
+    // Map service values to display names for better email subjects
+    const serviceDisplayNames: Record<string, string> = {
+      'make-ready': 'Make-Ready Turnover',
+      'handyman': 'Handyman Repairs',
+      'refresh': 'Refresh & Finishes',
+      'cleanout': 'Clean-out / Haul-away',
+      'hvac': 'HVAC Care & Filters',
+      'investor': 'Investor/PM Program',
+      'other': 'General Inquiry'
+    };
+
+    const service = serviceDisplayNames[serviceValue] || 'General Inquiry';
     formData.set('subject', `New ${service} request from ${name}`);
 
     try {
@@ -66,7 +79,7 @@ function ContactSection() {
   };
 
   return (
-    <section id="contact" className="py-12 sm:py-20 bg-concrete section-depth relative overflow-hidden">
+    <section id="contact" className="py-16 sm:py-20 bg-concrete section-depth relative overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -79,7 +92,7 @@ function ContactSection() {
             Get a quote
           </h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            Serving Texas with rapid response. Fill out the form and we will get back to you within 24 hours.
+            Serving Ohio and expanding to Texas with rapid response. Fill out the form and we will get back to you within 24 hours.
           </p>
         </motion.div>
 
@@ -355,7 +368,7 @@ function ContactSection() {
                   </div>
                   <div>
                     <h4 className="text-lg font-bold text-slate-900">Service Areas</h4>
-                    <p className="text-xs text-gray-600">Proudly serving Texas</p>
+                    <p className="text-xs text-gray-600">Ohio-based, now serving Texas too</p>
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-2">
