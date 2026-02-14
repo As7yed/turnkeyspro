@@ -20,57 +20,25 @@ function ContactSection() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    // Dynamically set email subject with user's name and service type
-    const name = formData.get('name') as string || 'Unknown';
-    const serviceValue = formData.get('service') as string || 'other';
-
-    // Map service values to display names for better email subjects
-    const serviceDisplayNames: Record<string, string> = {
-      'make-ready': 'Make-Ready Turnover',
-      'handyman': 'Handyman Repairs',
-      'refresh': 'Refresh & Finishes',
-      'cleanout': 'Clean-out / Haul-away',
-      'hvac': 'HVAC Care & Filters',
-      'investor': 'Investor/PM Program',
-      'other': 'General Inquiry'
-    };
-
-    const service = serviceDisplayNames[serviceValue] || 'General Inquiry';
-    formData.set('subject', `New ${service} request from ${name}`);
-
     try {
-      const response = await fetch('/netlify-form-detection.html', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString()
+        body: formData
       });
 
-      // Check if response is actually from Netlify Forms
-      const contentType = response.headers.get('content-type');
-      const isNetlifyForm = response.headers.get('x-nf-request-id') !== null;
-
-      if (response.ok && (isNetlifyForm || !contentType?.includes('text/html'))) {
-        // Actual form submission success
+      if (response.ok) {
+        // Form submission success
         setFormStatus('success');
         setFormMessage('Thank you! We\'ll get back to you within 24 hours.');
         form.reset();
-      } else if (response.ok && contentType?.includes('text/html')) {
-        // False positive - likely dev server returning HTML page
-        throw new Error('Form not configured. Please deploy to enable form submissions.');
       } else {
         throw new Error('Form submission failed');
       }
     } catch (error) {
       setFormStatus('error');
+      setFormMessage('Oops! Something went wrong. Please try again or call us directly.');
 
-      // Better error message based on environment
-      if (typeof window !== 'undefined' && window.location.hostname === 'localhost') {
-        setFormMessage('Form submissions are currently down. Please try again or reach out to us directly using our service line.');
-      } else {
-        setFormMessage('Oops! Something went wrong. Please try again or call us directly.');
-      }
-
-      // Reset error message after 8 seconds (longer for dev message)
+      // Reset error message after 8 seconds
       setTimeout(() => {
         setFormStatus('idle');
         setFormMessage('');
@@ -189,19 +157,9 @@ function ContactSection() {
                   <form
                     name="contact"
                     method="POST"
-                    data-netlify="true"
-                    data-netlify-honeypot="bot-field"
                     onSubmit={handleSubmit}
                     className="space-y-4"
                   >
-                {/* Netlify form detection */}
-                <input type="hidden" name="form-name" value="contact" />
-
-                {/* Honeypot for spam prevention */}
-                <input type="hidden" name="bot-field" />
-
-                {/* Dynamic email subject (set via JavaScript) */}
-                <input type="hidden" name="subject" value="" data-remove-prefix />
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
