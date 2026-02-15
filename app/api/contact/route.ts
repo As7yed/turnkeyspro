@@ -32,7 +32,7 @@ export async function POST(request: NextRequest) {
 
     // Send email with beautiful HTML template
     const { data, error } = await resend.emails.send({
-      from: 'TurnKey Pros Contact Form <onboarding@resend.dev>', // Will update after domain verification
+      from: 'TurnKey Pros Contact Form <noreply@turnkeyprosusa.com>',
       to: 'admin@turnkeyprosusa.com',
       replyTo: email || undefined, // Allows you to reply directly to the customer (only if valid)
       subject: subject,
@@ -286,7 +286,7 @@ export async function POST(request: NextRequest) {
     if (email) {
       console.log('Attempting to send confirmation email to:', email);
       const { error: customerEmailError } = await resend.emails.send({
-        from: 'TurnKey Pros <onboarding@resend.dev>',
+        from: 'TurnKey Pros <noreply@turnkeyprosusa.com>',
         to: email,
         replyTo: 'admin@turnkeyprosusa.com',
         subject: 'Thank you for contacting TurnKey Pros!',
