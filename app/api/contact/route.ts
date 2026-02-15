@@ -284,7 +284,8 @@ export async function POST(request: NextRequest) {
 
     // Send confirmation email to customer
     if (email) {
-      await resend.emails.send({
+      console.log('Attempting to send confirmation email to:', email);
+      const { error: customerEmailError } = await resend.emails.send({
         from: 'TurnKey Pros <onboarding@resend.dev>',
         to: email,
         replyTo: 'admin@turnkeyprosusa.com',
@@ -571,6 +572,11 @@ export async function POST(request: NextRequest) {
           </html>
         `,
       });
+
+      if (customerEmailError) {
+        console.error('Customer confirmation email error:', customerEmailError);
+        // Don't fail the whole request - admin email was sent successfully
+      }
     }
 
     return NextResponse.json({ success: true, id: data?.id }, { status: 200 });
