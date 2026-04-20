@@ -77,12 +77,12 @@ function HeroSection() {
           </div>
 
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-4 sm:mb-6 leading-tight">
-            Make-Ready & Handyman Services
+            Make-Ready & Property Maintenance Solutions
           </h1>
 
           <p className="text-lg sm:text-xl text-gray-300 mb-8 sm:mb-12 max-w-3xl mx-auto leading-relaxed px-2">
-            Residential and commercial property services. Make-ready turnovers, handyman repairs,
-            refresh projects, and clean-outs—delivered with efficiency and ease.
+            End-to-end turnover and maintenance solutions for property managers, portfolio owners,
+            and real estate investors, delivered with consistency and precision.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
@@ -90,31 +90,31 @@ function HeroSection() {
               href="#contact"
               className="group w-full sm:w-auto px-8 py-4 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center justify-center gap-2"
             >
-              Get started
+              Request Service
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={20} />
             </a>
 
             <a
-              href="tel:+10000000000"
+              href="tel:+18669896587"
               className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold rounded-lg transition-all text-center"
             >
-              Call +1 (000) 000-0000
+              Call (866) 989-6587
             </a>
           </div>
 
           {/* Stats Section */}
           <div className="mt-10 sm:mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 max-w-3xl mx-auto">
             <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
-              <div className="text-gray-300 text-sm mb-2">Experience</div>
-              <div className="text-white text-lg sm:text-xl font-semibold">Trusted Local Team</div>
+              <div className="text-gray-300 text-sm mb-2">Operations</div>
+              <div className="text-white text-lg sm:text-xl font-semibold">Portfolio-Ready</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
               <div className="text-gray-300 text-sm mb-2">Serving</div>
-              <div className="text-white text-lg sm:text-xl font-semibold">Homes • PMs • CRE</div>
+              <div className="text-white text-lg sm:text-xl font-semibold">SFR • Multi-Family • CRE</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-4">
               <div className="text-gray-300 text-sm mb-2">Commitment</div>
-              <div className="text-white text-lg sm:text-xl font-semibold">Quality Work</div>
+              <div className="text-white text-lg sm:text-xl font-semibold">Consistent Standards</div>
             </div>
           </div>
         </motion.div>

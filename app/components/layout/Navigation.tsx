@@ -15,7 +15,7 @@ function Navigation() {
           {/* Logo */}
           <a href="#" className="flex-shrink-0">
             <Image
-              src="/ResizedGrayLogo.png"
+              src="/ResizedOrangeLogo.png"
               alt="TurnKey Pros"
               width={200}
               height={67}
@@ -30,13 +30,13 @@ function Navigation() {
               href="#services"
               className="text-gray-700 hover:text-brand transition-colors font-medium"
             >
-              Services
+              Solutions
             </a>
             <a
               href="#process"
               className="text-gray-700 hover:text-brand transition-colors font-medium"
             >
-              How it works
+              The Turnkey Process
             </a>
             <a
               href="#why-us"
@@ -81,14 +81,14 @@ function Navigation() {
                 className="block text-gray-700 hover:text-brand hover:bg-gray-50 transition-colors font-medium py-3 px-3 rounded-lg text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Services
+                Solutions
               </a>
               <a
                 href="#process"
                 className="block text-gray-700 hover:text-brand hover:bg-gray-50 transition-colors font-medium py-3 px-3 rounded-lg text-lg"
                 onClick={() => setMobileMenuOpen(false)}
               >
-                How it works
+                The Turnkey Process
               </a>
               <a
                 href="#why-us"
