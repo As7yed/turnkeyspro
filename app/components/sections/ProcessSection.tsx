@@ -8,26 +8,26 @@ const steps = [
   {
     icon: Phone,
     number: '1',
-    title: 'You reach out',
-    description: 'Call, text, or submit a request. We respond the same day.',
+    title: 'Submit Service Request',
+    description: 'Submit a request online or by phone. Our team confirms scope and availability the same business day.',
   },
   {
     icon: FileText,
     number: '2',
-    title: 'We scope & quote',
-    description: 'Clear pricing, realistic timelines, transparent communication.',
+    title: 'Scope and Confirm',
+    description: 'We confirm scope, provide clear pricing, and align on timelines before any work begins.',
   },
   {
     icon: Wrench,
     number: '3',
-    title: 'We get it done',
-    description: 'Professional crew, on-time arrival, quality workmanship.',
+    title: 'Execute with Precision',
+    description: 'Our uniformed crew arrives on schedule, performs work to standard, and leaves the site clean.',
   },
   {
     icon: CheckCircle,
     number: '4',
-    title: 'You approve & close',
-    description: 'Walk-through, photos, final invoice. Simple and stress-free.',
+    title: 'Review and Close',
+    description: 'Final inspection, site documentation, and invoice delivered. Clean records for your portfolio.',
   },
 ];
 
@@ -43,10 +43,10 @@ function ProcessSection() {
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
-            How it works
+            The Turnkey Process
           </h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            From the first call to the final punch list, we handle the logistics so you do not have to chase crews.
+            A structured, repeatable process built for operators who need consistency across every property—from first contact to final close-out.
           </p>
         </motion.div>
 
@@ -94,7 +94,7 @@ function ProcessSection() {
             href="#contact"
             className="inline-block px-8 py-4 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg hover:scale-105"
           >
-            Start your project
+            Request Service
           </a>
         </div>
       </div>

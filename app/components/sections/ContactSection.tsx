@@ -57,10 +57,10 @@ function ContactSection() {
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4">
-            Get a quote
+            Request Service
           </h2>
           <p className="text-base sm:text-xl text-gray-300 max-w-3xl mx-auto px-2">
-            Serving Ohio and expanding to Texas with rapid response. Fill out the form and we will get back to you within 24 hours.
+            Operating across Ohio and Texas. Submit a request and our team will follow up within one business day.
           </p>
         </motion.div>
 
@@ -114,6 +114,15 @@ function ContactSection() {
                     We've received your request and will get back to you within 24 hours.
                   </motion.p>
 
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.55 }}
+                    className="text-xs sm:text-sm text-gray-500 mb-8 max-w-md"
+                  >
+                    Haven&apos;t received a confirmation email? Please check your spam folder.
+                  </motion.p>
+
                   <motion.button
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -134,13 +143,13 @@ function ContactSection() {
                     transition={{ delay: 0.7 }}
                     className="text-xs text-gray-500 mt-6"
                   >
-                    Need immediate assistance? Call us at <a href="tel:+10000000000" className="text-brand font-semibold hover:underline">+1 (000) 000-0000</a>
+                    Need immediate assistance? Call us at <a href="tel:+18669896587" className="text-brand font-semibold hover:underline">(866) 989-6587</a>
                   </motion.p>
                 </motion.div>
               ) : (
                 /* Form State */
                 <>
-                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Send us a message</h3>
+                  <h3 className="text-xl sm:text-2xl font-bold text-slate-900 mb-4 sm:mb-6">Submit a Service Request</h3>
 
                   {/* Error Message Only */}
                   {formStatus === 'error' && (
@@ -171,6 +180,7 @@ function ContactSection() {
                       id="name"
                       name="name"
                       required
+                      suppressHydrationWarning
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                       placeholder="Your name"
                     />
@@ -184,6 +194,7 @@ function ContactSection() {
                       id="email"
                       name="email"
                       required
+                      suppressHydrationWarning
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                       placeholder="your@email.com"
                     />
@@ -200,8 +211,9 @@ function ContactSection() {
                       id="phone"
                       name="phone"
                       required
+                      suppressHydrationWarning
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
-                      placeholder="(555) 123-4567"
+                      placeholder="(866) 989-6587"
                     />
                   </div>
                   <div>
@@ -212,15 +224,15 @@ function ContactSection() {
                       id="service"
                       name="service"
                       required
+                      suppressHydrationWarning
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                     >
-                      <option value="">Select a service</option>
+                      <option value="">Select a solution</option>
                       <option value="make-ready">Make-Ready Turnover</option>
-                      <option value="handyman">Handyman Repairs</option>
+                      <option value="repair">Repair & Maintenance</option>
                       <option value="refresh">Refresh & Finishes</option>
                       <option value="cleanout">Clean-out / Haul-away</option>
-                      <option value="hvac">HVAC Care & Filters</option>
-                      <option value="investor">Investor/PM Program</option>
+                      <option value="portfolio">Portfolio / PM Program</option>
                       <option value="other">Other / Not Sure</option>
                     </select>
                   </div>
@@ -234,6 +246,7 @@ function ContactSection() {
                     type="text"
                     id="property-address"
                     name="property-address"
+                    suppressHydrationWarning
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
                     placeholder="123 Main St, Dallas, TX 75001"
                   />
@@ -248,6 +261,7 @@ function ContactSection() {
                     name="message"
                     required
                     rows={4}
+                    suppressHydrationWarning
                     className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all resize-none"
                     placeholder="Tell us about your project..."
                   />
@@ -259,6 +273,7 @@ function ContactSection() {
                     id="request-estimate"
                     name="request-estimate"
                     value="yes"
+                    suppressHydrationWarning
                     className="w-5 h-5 text-brand border-gray-300 rounded focus:ring-2 focus:ring-brand cursor-pointer"
                   />
                   <label htmlFor="request-estimate" className="text-sm font-semibold text-slate-900 cursor-pointer">
@@ -269,6 +284,7 @@ function ContactSection() {
                 <button
                   type="submit"
                   disabled={formStatus === 'submitting'}
+                  suppressHydrationWarning
                   className="w-full px-8 py-3 bg-brand hover:bg-brand-dark text-white font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Send size={20} />
@@ -288,7 +304,7 @@ function ContactSection() {
               {/* Contact Info */}
               <div className="space-y-4">
                 <a
-                  href="tel:+10000000000"
+                  href="tel:+18669896587"
                   className="group flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-brand/5 border-2 border-transparent hover:border-brand transition-all"
                 >
                   <div className="p-3 bg-brand/10 rounded-xl group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -297,7 +313,7 @@ function ContactSection() {
                   <div>
                     <div className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Call us</div>
                     <div className="text-lg font-bold text-slate-900 group-hover:text-brand transition-colors">
-                      +1 (000) 000-0000
+                      (866) 989-6587
                     </div>
                   </div>
                 </a>

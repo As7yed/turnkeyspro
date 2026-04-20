@@ -13,22 +13,22 @@ const whyUsReasons = [
   {
     icon: Clock,
     title: 'Rapid Response',
-    description: 'Same-day and next-day services available to keep your projects moving.',
+    description: 'Same-day and next-day availability to minimize vacancy time and keep your units turning.',
   },
   {
     icon: Shield,
     title: 'Professional Team',
-    description: 'Skilled, background-checked experts. We arrive in uniform and leave the site clean.',
+    description: 'Uniformed, background-checked technicians held to a consistent standard on every property, every time.',
   },
   {
     icon: Users,
-    title: 'Property-Focused',
-    description: 'We speak your language—whether you manage 5 units or 500. Reliable communication, predictable pricing.',
+    title: 'Portfolio-Ready',
+    description: 'Built for operators managing multiple properties. Whether you have 5 units or 500, we deliver reliable communication and predictable pricing.',
   },
   {
     icon: CheckCircle,
-    title: 'The TurnKey Experience',
-    description: 'One point of contact, clear communication, and hassle-free coordination from start to finish.',
+    title: 'Full Accountability',
+    description: 'One point of contact, complete accountability, and seamless coordination from work order to close-out.',
   },
 ];
 
@@ -47,7 +47,7 @@ function TrustSection() {
             The Turnkey Experience
           </h2>
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-            We are built for reliability—clear communication, on-time arrivals, and clean job sites.
+            Built for the demands of professional property management—reliable communication, consistent execution, and documented results.
           </p>
         </motion.div>
 

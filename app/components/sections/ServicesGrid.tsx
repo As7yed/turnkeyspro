@@ -7,7 +7,6 @@ import {
   Hammer,
   PaintBucket,
   Trash2,
-  Wind,
   TrendingUp,
 } from 'lucide-react';
 
@@ -26,14 +25,14 @@ const services = [
   },
   {
     icon: Hammer,
-    title: 'Handyman Essentials',
+    title: 'Repair & Maintenance',
     items: [
       'Drywall patching & texture',
       'Interior & exterior painting',
       'Door & trim repair',
       'Fixture installation',
       'Cabinet adjustments',
-      'TV mounting & hardware install',
+      'General repairs & hardware',
     ],
   },
   {
@@ -61,20 +60,8 @@ const services = [
     ],
   },
   {
-    icon: Wind,
-    title: 'HVAC Care & Filters',
-    items: [
-      'Filter changes (standard & custom sizes)',
-      'Condensate line flush & drain clearing',
-      'Thermostat swaps & programming',
-      'Light coil washing',
-      'Return vent cleaning',
-      'Filter subscription service',
-    ],
-  },
-  {
     icon: TrendingUp,
-    title: 'Investor/PM Programs',
+    title: 'Portfolio & PM Programs',
     items: [
       'Quarterly maintenance plans',
       'Portfolio-level scheduling',
@@ -98,16 +85,22 @@ function ServicesGrid() {
           className="text-center mb-10 sm:mb-16"
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mb-3 sm:mb-4">
-            Services
+            Solutions
           </h2>
           <p className="text-base sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-            Reliable make-ready and handyman services for property managers, investors, and homeowners.
+            End-to-end property maintenance and make-ready solutions for property managers, investors, and portfolio operators.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const desktopPositionClass =
+              index === 3
+                ? 'lg:col-span-2 lg:col-start-2'
+                : index === 4
+                  ? 'lg:col-span-2 lg:col-start-4'
+                  : 'lg:col-span-2';
             return (
               <motion.div
                 key={index}
@@ -115,7 +108,7 @@ function ServicesGrid() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all"
+                className={`group bg-white rounded-xl p-6 sm:p-8 shadow-md hover:shadow-lg transition-all ${desktopPositionClass}`}
                 style={{ willChange: 'transform' }}
               >
                 <div className="flex items-center gap-4 mb-6">

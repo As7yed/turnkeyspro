@@ -19,11 +19,10 @@ export async function POST(request: NextRequest) {
     // Map service values to display names
     const serviceDisplayNames: Record<string, string> = {
       'make-ready': 'Make-Ready Turnover',
-      'handyman': 'Handyman Repairs',
+      'repair': 'Repair & Maintenance',
       'refresh': 'Refresh & Finishes',
       'cleanout': 'Clean-out / Haul-away',
-      'hvac': 'HVAC Care & Filters',
-      'investor': 'Investor/PM Program',
+      'portfolio': 'Portfolio / PM Program',
       'other': 'General Inquiry'
     };
 
@@ -61,10 +60,11 @@ export async function POST(request: NextRequest) {
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
               }
               .email-header {
-                background: linear-gradient(135deg, #F0702F 0%, #D4601F 100%);
+                background: #1e293b;
                 color: #ffffff;
                 padding: 40px 30px;
                 text-align: center;
+                border-bottom: 4px solid #F0702F;
               }
               .email-header img {
                 max-width: 200px;
@@ -83,6 +83,28 @@ export async function POST(request: NextRequest) {
               }
               .email-body {
                 padding: 40px 30px;
+              }
+              .actions {
+                display: flex;
+                gap: 12px;
+                flex-wrap: wrap;
+                margin-bottom: 28px;
+              }
+              .action-btn {
+                display: inline-block;
+                text-decoration: none;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 600;
+                padding: 12px 18px;
+              }
+              .action-btn-primary {
+                background: #F0702F;
+                color: #ffffff;
+              }
+              .action-btn-secondary {
+                background: #334155;
+                color: #ffffff;
               }
               .info-section {
                 margin-bottom: 30px;
@@ -132,6 +154,16 @@ export async function POST(request: NextRequest) {
                 font-size: 13px;
                 font-weight: 600;
                 margin-top: 8px;
+              }
+              .request-alert {
+                background: #fff8f4;
+                border-left: 4px solid #F0702F;
+                border-radius: 6px;
+                padding: 12px 14px;
+                margin-bottom: 24px;
+                font-size: 14px;
+                color: #111827;
+                font-weight: 500;
               }
               .email-footer {
                 background: #f8f8f8;
@@ -202,10 +234,19 @@ export async function POST(request: NextRequest) {
               }
             </style>
           </head>
-          <body>
-            <div class="email-container">
+          <body style="margin:0; padding:0; background-color:#f5f5f5;">
+            <div style="display:none; max-height:0; overflow:hidden; opacity:0; mso-hide:all;">
+              New ${serviceDisplay} request from ${name}. Open to view contact details and project notes.
+            </div>
+            <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#f5f5f5; margin:0; padding:24px 12px;">
+              <tr>
+                <td align="center">
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width:100%; max-width:600px;">
+                    <tr>
+                      <td style="background:#ffffff; border-radius:12px; overflow:hidden;">
+                        <div class="email-container" style="margin:0; border-radius:12px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
               <!-- Header -->
-              <div class="email-header">
+              <div class="email-header" style="background:#1e293b; color:#ffffff; padding:40px 30px; text-align:center; border-bottom:4px solid #F0702F;">
                 <img src="https://turnkeyprosusa.com/ResizedOrangeLogo.png" alt="TurnKey Pros" />
                 <h1>New Service Request</h1>
                 <p>${serviceDisplay}</p>
@@ -213,6 +254,21 @@ export async function POST(request: NextRequest) {
 
               <!-- Body -->
               <div class="email-body">
+                <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin-bottom:28px;">
+                  <tr>
+                    <td align="left" style="padding:0;">
+                      <a href="mailto:${email}" class="action-btn action-btn-primary" style="display:inline-block; text-decoration:none; border-radius:8px; font-size:14px; font-weight:600; padding:12px 18px; background:#F0702F; color:#ffffff; margin-right:8px;">Email ${name}</a>
+                      <a href="tel:${phone}" class="action-btn action-btn-secondary" style="display:inline-block; text-decoration:none; border-radius:8px; font-size:14px; font-weight:600; padding:12px 18px; background:#334155; color:#ffffff;">Call ${phone}</a>
+                    </td>
+                  </tr>
+                </table>
+
+                ${requestEstimate ? `
+                <div class="request-alert">
+                  🔔 Free estimate requested for this project.
+                </div>
+                ` : ''}
+
                 <!-- Customer Info -->
                 <div class="info-section">
                   <div class="info-label">Customer Name</div>
@@ -265,13 +321,19 @@ export async function POST(request: NextRequest) {
               </div>
 
               <!-- Footer -->
-              <div class="email-footer">
+              <div class="email-footer" style="background:#f8f8f8; padding:24px 30px; text-align:center; border-top:1px solid #e5e5e5;">
                 <p><strong>💡 Pro Tip:</strong> Click "Reply" to respond directly to ${name}</p>
                 <p style="margin-top: 12px; color: #999; font-size: 12px;">
                   Sent from TurnKey Pros Contact Form • turnkeyprosusa.com
                 </p>
               </div>
-            </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
           </body>
         </html>
       `,
@@ -315,10 +377,11 @@ export async function POST(request: NextRequest) {
                   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 }
                 .email-header {
-                  background: linear-gradient(135deg, #F0702F 0%, #D4601F 100%);
+                  background: #1e293b;
                   color: #ffffff;
                   padding: 40px 30px;
                   text-align: center;
+                  border-bottom: 4px solid #F0702F;
                 }
                 .email-header img {
                   max-width: 200px;
@@ -351,15 +414,15 @@ export async function POST(request: NextRequest) {
                   margin-bottom: 16px;
                 }
                 .highlight-box {
-                  background: #fef3ed;
-                  border-left: 4px solid #F0702F;
+                  background: #f5f6f8;
+                  border-left: 4px solid #334155;
                   border-radius: 8px;
                   padding: 20px;
                   margin: 24px 0;
                 }
                 .highlight-box h3 {
                   margin: 0 0 12px 0;
-                  color: #F0702F;
+                  color: #111827;
                   font-size: 18px;
                   font-weight: 700;
                 }
@@ -411,7 +474,7 @@ export async function POST(request: NextRequest) {
                 }
                 .cta-button {
                   display: inline-block;
-                  background: linear-gradient(135deg, #F0702F 0%, #D4601F 100%);
+                  background: #F0702F;
                   color: white;
                   padding: 14px 32px;
                   border-radius: 8px;
@@ -419,10 +482,10 @@ export async function POST(request: NextRequest) {
                   font-weight: 600;
                   font-size: 16px;
                   margin: 16px 0;
-                  box-shadow: 0 4px 6px rgba(240, 112, 47, 0.3);
+                  box-shadow: 0 4px 6px rgba(240, 112, 47, 0.25);
                 }
                 .cta-button:hover {
-                  box-shadow: 0 6px 8px rgba(240, 112, 47, 0.4);
+                  box-shadow: 0 6px 8px rgba(240, 112, 47, 0.35);
                 }
                 .email-footer {
                   background: #f8f8f8;
@@ -488,12 +551,21 @@ export async function POST(request: NextRequest) {
                 }
               </style>
             </head>
-            <body>
-              <div class="email-container">
+            <body style="margin:0; padding:0; background-color:#f5f5f5;">
+              <div style="display:none; max-height:0; overflow:hidden; opacity:0; mso-hide:all;">
+                We received your request and will follow up within 24 hours.
+              </div>
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="background-color:#f5f5f5; margin:0; padding:24px 12px;">
+                <tr>
+                  <td align="center">
+                    <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="600" style="width:100%; max-width:600px;">
+                      <tr>
+                        <td style="background:#ffffff; border-radius:12px; overflow:hidden;">
+                          <div class="email-container" style="margin:0; border-radius:12px; overflow:hidden; box-shadow:0 4px 6px rgba(0,0,0,0.1);">
                 <!-- Header -->
-                <div class="email-header">
+                <div class="email-header" style="background:#1e293b; color:#ffffff; padding:40px 30px; text-align:center; border-bottom:4px solid #F0702F;">
                   <img src="https://turnkeyprosusa.com/ResizedOrangeLogo.png" alt="TurnKey Pros" />
-                  <h1>We've Received Your Request!</h1>
+                  <h1>We Received Your Request</h1>
                   <p>Thank you for choosing TurnKey Pros</p>
                 </div>
 
@@ -506,7 +578,7 @@ export async function POST(request: NextRequest) {
                   </p>
 
                   <div class="highlight-box">
-                    <h3>⏱️ What Happens Next?</h3>
+                    <h3>What Happens Next</h3>
                     <p>
                       One of our property service specialists will review your request and contact you within <strong>24 hours</strong> to discuss your project in detail and provide a customized solution.
                     </p>
@@ -541,13 +613,17 @@ export async function POST(request: NextRequest) {
                   <!-- Contact Info -->
                   <div class="contact-info">
                     <p><strong>Need to reach us sooner?</strong></p>
-                    <p>📞 Call us at: <a href="tel:+10000000000">+1 (000) 000-0000</a></p>
+                    <p>📞 Call us at: <a href="tel:+18669896587">(866) 989-6587</a></p>
                     <p>✉️ Email: <a href="mailto:admin@turnkeyprosusa.com">admin@turnkeyprosusa.com</a></p>
                   </div>
 
-                  <div style="text-align: center;">
-                    <a href="https://turnkeyprosusa.com" class="cta-button">Visit Our Website</a>
-                  </div>
+                  <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%" style="margin:16px 0;">
+                    <tr>
+                      <td align="center">
+                        <a href="https://turnkeyprosusa.com" class="cta-button" style="display:inline-block; background:#F0702F; color:#ffffff; padding:14px 32px; border-radius:8px; text-decoration:none; font-weight:600; font-size:16px;">Visit Our Website</a>
+                      </td>
+                    </tr>
+                  </table>
 
                   <p class="content-text" style="margin-top: 30px;">
                     We look forward to making your property turn-key ready!
@@ -560,14 +636,20 @@ export async function POST(request: NextRequest) {
                 </div>
 
                 <!-- Footer -->
-                <div class="email-footer">
+                <div class="email-footer" style="background:#f8f8f8; padding:24px 30px; text-align:center; border-top:1px solid #e5e5e5;">
                   <p><strong>TurnKey Pros</strong></p>
                   <p>Professional Property Services in Ohio & Texas</p>
                   <p style="margin-top: 12px; color: #999; font-size: 12px;">
                     This is an automated confirmation email. Please do not reply directly to this message.
                   </p>
                 </div>
-              </div>
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
             </body>
           </html>
         `,

@@ -114,7 +114,7 @@ Place your logo in the `/public` folder and update the Navigation component to u
 ## 📞 Contact Information
 
 Update contact details in [app/components/Footer.tsx](app/components/Footer.tsx):
-- Phone: `+1 (000) 000-0000`
+- Phone: `(866) 989-6587`
 - Email: `hello@turnkeypros.com`
 
 ## 🌐 Deployment

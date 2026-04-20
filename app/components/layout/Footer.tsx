@@ -10,14 +10,14 @@ export default function Footer() {
           {/* Company Info */}
           <div className="text-center md:text-left">
             <Image
-              src="/ResizedGrayLogo.png"
+              src="/ResizedOrangeLogo.png"
               alt="TurnKey Pros"
               width={200}
               height={67}
               className="h-12 sm:h-16 w-auto mb-4 mx-auto md:mx-0"
             />
             <p className="text-gray-300 mb-4 leading-relaxed">
-              Professional make-ready and handyman services for property managers, investors, and homeowners across Ohio.
+              Professional make-ready and property maintenance solutions for managers, investors, and portfolio operators across Ohio and Texas.
             </p>
           </div>
 
@@ -30,7 +30,7 @@ export default function Footer() {
                   href="#services"
                   className="text-gray-300 hover:text-brand transition-colors"
                 >
-                  Services
+                  Solutions
                 </a>
               </li>
               <li>
@@ -38,7 +38,7 @@ export default function Footer() {
                   href="#process"
                   className="text-gray-300 hover:text-brand transition-colors"
                 >
-                  How it works
+                  The Turnkey Process
                 </a>
               </li>
               <li>
@@ -70,9 +70,9 @@ export default function Footer() {
 
           {/* About Section */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">About Turnkey Pro Solutions</h4>
+            <h4 className="text-lg font-semibold mb-4">About TurnKey Pros</h4>
             <p className="text-gray-300 leading-relaxed">
-              At TurnKey Pros, we specialize in delivering comprehensive property maintenance and make-ready solutions that property managers and homeowners can rely on. With expertise in everything from turnovers to handyman services, we combine modern efficiency with dependable service. Our commitment to excellence means we provide responsive support to handle your property needs quickly and professionally.
+              TurnKey Pros delivers comprehensive property maintenance and make-ready solutions built for property managers, investors, and portfolio operators. From single-unit turnovers to portfolio-scale maintenance programs, we combine structured processes with professional execution—giving operators the consistency and reliability they need to scale with confidence.
             </p>
           </div>
         </div>
