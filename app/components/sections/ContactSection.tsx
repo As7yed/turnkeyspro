@@ -143,7 +143,7 @@ function ContactSection() {
                     transition={{ delay: 0.7 }}
                     className="text-xs text-gray-500 mt-6"
                   >
-                    Need immediate assistance? Call us at <a href="tel:+18669896587" className="text-brand font-semibold hover:underline">(866) 989-6587</a>
+                    Need immediate assistance? Call us at <a href="tel:+12164661730" className="text-brand font-semibold hover:underline">(216) 466-1730</a>
                   </motion.p>
                 </motion.div>
               ) : (
@@ -213,7 +213,7 @@ function ContactSection() {
                       required
                       suppressHydrationWarning
                       className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand focus:border-brand transition-all"
-                      placeholder="(866) 989-6587"
+                      placeholder="(216) 466-1730"
                     />
                   </div>
                   <div>
@@ -304,7 +304,7 @@ function ContactSection() {
               {/* Contact Info */}
               <div className="space-y-4">
                 <a
-                  href="tel:+18669896587"
+                  href="tel:+12164661730"
                   className="group flex items-center gap-4 p-4 bg-white rounded-xl hover:bg-brand/5 border-2 border-transparent hover:border-brand transition-all"
                 >
                   <div className="p-3 bg-brand/10 rounded-xl group-hover:bg-brand group-hover:scale-110 transition-all">
@@ -313,7 +313,7 @@ function ContactSection() {
                   <div>
                     <div className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">Call us</div>
                     <div className="text-lg font-bold text-slate-900 group-hover:text-brand transition-colors">
-                      (866) 989-6587
+                      (216) 466-1730
                     </div>
                   </div>
                 </a>
