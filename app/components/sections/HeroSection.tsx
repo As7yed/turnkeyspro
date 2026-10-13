@@ -95,10 +95,10 @@ function HeroSection() {
             </a>
 
             <a
-              href="tel:+18669896587"
+              href="tel:+12164661730"
               className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold rounded-lg transition-all text-center"
             >
-              Call (866) 989-6587
+              Call (216) 466-1730
             </a>
           </div>
 

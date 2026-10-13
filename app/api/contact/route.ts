@@ -613,7 +613,7 @@ export async function POST(request: NextRequest) {
                   <!-- Contact Info -->
                   <div class="contact-info">
                     <p><strong>Need to reach us sooner?</strong></p>
-                    <p>📞 Call us at: <a href="tel:+18669896587">(866) 989-6587</a></p>
+                    <p>📞 Call us at: <a href="tel:+12164661730">(216) 466-1730</a></p>
                     <p>✉️ Email: <a href="mailto:admin@turnkeyprosusa.com">admin@turnkeyprosusa.com</a></p>
                   </div>
 
